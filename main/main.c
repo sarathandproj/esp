@@ -25,12 +25,20 @@ void printHW(void *parameter) {
 }
 
 
+
+
 void app_main(void)
 {
     printf("%d\n",xPortGetCoreID());
     // printf("%d\n",uxTaskPriorityGet(NULL));
-    xTaskCreatePinnedToCore(printHW," print HW",2048,NULL,1,NULL,1);
 
-    xTaskCreatePinnedToCore(printONE," print ONE",1024,NULL,2,NULL,1);
+    printf("%d\n",uxTaskGetStackHighWaterMark(NULL));
+
+    printf("%d",xPortGetFreeHeapSize());
+
+
+    // xTaskCreatePinnedToCore(printHW," print HW",2048,NULL,1,NULL,1);
+
+    // xTaskCreatePinnedToCore(printONE," print ONE",1024,NULL,2,NULL,1);
     
 }
